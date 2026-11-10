@@ -5,224 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Favorite Games</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #101827;
-            color: white;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #512da8, #1565c0);
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        header p {
-            font-size: 16px;
-        }
-
-        .filter-buttons {
-            text-align: center;
-            padding: 30px 15px;
-        }
-
-        .filter-buttons button {
-            background: #263650;
-            color: white;
-            border: none;
-            padding: 12px 22px;
-            margin: 5px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .filter-buttons button:hover,
-        .filter-buttons button.active {
-            background: #8e5cf7;
-            transform: scale(1.08);
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            padding: 20px 7%;
-        }
-
-        .card {
-            background: #1d2a40;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            color: #b69aff;
-        }
-
-        .card p {
-            color: #d0d6e2;
-            line-height: 1.6;
-        }
-
-        .hide {
-            display: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            margin-top: 30px;
-            background: #080e19;
-            color: #aaa;
-        }
-
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>🎮 MY FAVORITE GAMES</h1>
-        <p>เว็บไซต์แนะนำเกมที่น่าสนใจ รวมเกมหลากหลายประเภทไว้ในที่เดียว</p>
-    </header>
+<header>
+    <h1>🎮 MY FAVORITE GAMES</h1>
+    <p>เว็บไซต์แนะนำเกมที่น่าสนใจ รวมเกมหลากหลายประเภทไว้ในที่เดียว</p>
+</header>
 
-    <div class="filter-buttons">
-        <button class="active" onclick="filterGames('all', this)">ทั้งหมด</button>
-        <button onclick="filterGames('adventure', this)">ผจญภัย</button>
-        <button onclick="filterGames('action', this)">แอ็กชัน</button>
-        <button onclick="filterGames('strategy', this)">วางแผน</button>
+<div class="filter-buttons">
+    <button class="active" onclick="filterGames('all', this)">ทั้งหมด</button>
+    <button onclick="filterGames('adventure', this)">ผจญภัย</button>
+    <button onclick="filterGames('action', this)">แอ็กชัน</button>
+    <button onclick="filterGames('strategy', this)">วางแผน</button>
+</div>
+
+<section class="gallery">
+
+    <div class="card" data-category="adventure">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600" alt="Minecraft">
+        <div class="card-content">
+            <h3>Minecraft</h3>
+            <p>เกมสร้างโลกและออกผจญภัย สามารถสร้างสิ่งต่าง ๆ ได้อย่างอิสระ</p>
+        </div>
     </div>
 
-    <section class="gallery">
-
-        <div class="card" data-category="adventure">
-            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600" alt="เกมผจญภัย">
-            <div class="card-content">
-                <h3>Minecraft</h3>
-                <p>เกมสร้างโลกและออกผจญภัย สามารถสร้างสิ่งต่าง ๆ ได้อย่างอิสระ</p>
-            </div>
+    <div class="card" data-category="action">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600" alt="Valorant">
+        <div class="card-content">
+            <h3>Valorant</h3>
+            <p>เกมยิงปืนแนววางแผน ใช้ทักษะและการทำงานเป็นทีม</p>
         </div>
+    </div>
 
-        <div class="card" data-category="action">
-            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600" alt="เกมแอ็กชัน">
-            <div class="card-content">
-                <h3>Valorant</h3>
-                <p>เกมยิงปืนแนววางแผน ใช้ทักษะและการทำงานเป็นทีม</p>
-            </div>
+    <div class="card" data-category="strategy">
+        <img src="https://images.unsplash.com/photo-1606503153255-59d8b8b821a6?w=600" alt="Chess">
+        <div class="card-content">
+            <h3>Chess</h3>
+            <p>เกมหมากรุกที่ต้องใช้ความคิดและวางแผนเพื่อเอาชนะคู่ต่อสู้</p>
         </div>
+    </div>
 
-        <div class="card" data-category="strategy">
-            <img src="https://images.unsplash.com/photo-1606503153255-59d8b8b821a6?w=600" alt="เกมวางแผน">
-            <div class="card-content">
-                <h3>Chess</h3>
-                <p>เกมหมากรุกที่ต้องใช้ความคิดและวางแผนเพื่อเอาชนะคู่ต่อสู้</p>
-            </div>
+    <div class="card" data-category="adventure">
+        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600" alt="Adventure Game">
+        <div class="card-content">
+            <h3>Adventure Game</h3>
+            <p>เกมที่เต็มไปด้วยการสำรวจ การค้นหาสิ่งใหม่ และการผจญภัย</p>
         </div>
+    </div>
 
-        <div class="card" data-category="adventure">
-            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600" alt="เกมผจญภัย">
-            <div class="card-content">
-                <h3>Adventure Game</h3>
-                <p>เกมที่เต็มไปด้วยการสำรวจ การค้นหาสิ่งใหม่ และการผจญภัย</p>
-            </div>
+    <div class="card" data-category="action">
+        <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=600" alt="Action Game">
+        <div class="card-content">
+            <h3>Action Game</h3>
+            <p>เกมต่อสู้ที่ต้องอาศัยความรวดเร็วและการตอบสนอง</p>
         </div>
+    </div>
 
-        <div class="card" data-category="action">
-            <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=600" alt="เกมแอ็กชัน">
-            <div class="card-content">
-                <h3>Action Game</h3>
-                <p>เกมต่อสู้ที่ต้องอาศัยความรวดเร็วและการตอบสนอง</p>
-            </div>
+    <div class="card" data-category="strategy">
+        <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600" alt="Strategy Game">
+        <div class="card-content">
+            <h3>Strategy Game</h3>
+            <p>เกมวางแผนและบริหารทรัพยากรเพื่อเอาชนะภารกิจ</p>
         </div>
+    </div>
 
-        <div class="card" data-category="strategy">
-            <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600" alt="เกมวางแผน">
-            <div class="card-content">
-                <h3>Strategy Game</h3>
-                <p>เกมวางแผนและบริหารทรัพยากรเพื่อเอาชนะภารกิจ</p>
-            </div>
-        </div>
+</section>
 
-    </section>
+<footer>
+    <p>© 2026 My Favorite Games | จัดทำเพื่อการศึกษา</p>
+</footer>
 
-    <footer>
-        <p>© 2026 My Favorite Games | จัดทำเพื่อการศึกษา</p>
-    </footer>
-
-    <script>
-        function filterGames(category, button) {
-
-            let cards = document.querySelectorAll(".card");
-            let buttons = document.querySelectorAll(".filter-buttons button");
-
-            buttons.forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-            button.classList.add("active");
-
-            cards.forEach(card => {
-
-                if (category === "all" ||
-                    card.dataset.category === category) {
-
-                    card.classList.remove("hide");
-
-                } else {
-
-                    card.classList.add("hide");
-
-                }
-
-            });
-        }
-    </script>
-
+<script src="script.js"></script>
 </body>
 </html>
